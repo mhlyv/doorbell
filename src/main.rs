@@ -1,9 +1,9 @@
-use rppal::gpio::Gpio;
 use rand::prelude::*;
+use rodio::{source::Source, Decoder, OutputStream, Sink};
+use rppal::gpio::Gpio;
 use std::fs::File;
-use std::path::{Path, PathBuf};
 use std::io::BufReader;
-use rodio::{Decoder, OutputStream, Sink, source::Source};
+use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 //const SOUNDS_DIR: &'static str = "sounds";
@@ -11,7 +11,9 @@ const SOUNDS_DIR: &'static str = "/usr/local/share/doorbell/sounds";
 
 fn choose_sound_file() -> Result<PathBuf, Box<dyn std::error::Error>> {
     let files = std::fs::read_dir(SOUNDS_DIR)?;
-    let selected = files.choose(&mut rand::thread_rng()).ok_or_else(|| "no sounds found")??;
+    let selected = files
+        .choose(&mut rand::thread_rng())
+        .ok_or_else(|| "no sounds found")??;
     Ok(selected.path())
 }
 
