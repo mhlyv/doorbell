@@ -1,6 +1,6 @@
 # Raspberry pi doorbell
 
-This is a very quick and dirty project made just for fun. A couple of wires and tape is used to detect when the door is opened.
+This is a very quick and dirty project made just for fun. A couple of wires and tape is used to detect when the door is opened, then a randomly selected sound is played on a speaker.
 
 ## Installation
 
