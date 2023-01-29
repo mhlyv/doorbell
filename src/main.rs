@@ -1,10 +1,9 @@
 use rand::prelude::*;
-use rodio::{source::Source, Decoder, OutputStream, Sink};
+use rodio::{Decoder, OutputStream, Sink};
 use rppal::gpio::Gpio;
 use std::fs::File;
 use std::io::BufReader;
 use std::path::{Path, PathBuf};
-use std::time::Duration;
 
 //const SOUNDS_DIR: &'static str = "sounds";
 const SOUNDS_DIR: &'static str = "/usr/local/share/doorbell/sounds";
@@ -38,6 +37,4 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             play_sound(sound)?;
         }
     }
-
-    Ok(())
 }
